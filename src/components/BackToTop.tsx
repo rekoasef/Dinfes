@@ -25,7 +25,7 @@ export default function BackToTop() {
           exit={{ opacity: 0, y: 20, scale: 0.85 }}
           transition={{ duration: 0.35, ease: easeOutExpo }}
           whileHover={{ y: -3 }}
-          className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-brand-950/90 text-white shadow-xl shadow-brand-950/30 backdrop-blur transition-colors hover:bg-accent-500 hover:border-accent-500"
+          className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-brand-950/90 text-white shadow-xl shadow-brand-950/30 backdrop-blur transition-colors hover:bg-accent-500 hover:text-brand-950 hover:border-accent-500"
         >
           <svg viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
             <path

@@ -96,7 +96,7 @@ export default function ProductCard({
               ) : null}
             </div>
 
-            <span className="absolute inset-x-0 bottom-0 flex translate-y-full items-center justify-center gap-2 bg-accent-500 py-2.5 text-xs font-semibold text-white transition-transform duration-300 group-hover:translate-y-0">
+            <span className="absolute inset-x-0 bottom-0 flex translate-y-full items-center justify-center gap-2 bg-accent-500 py-2.5 text-xs font-semibold text-brand-950 transition-transform duration-300 group-hover:translate-y-0">
               Ver detalle
               <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5">
                 <path
@@ -109,7 +109,7 @@ export default function ProductCard({
           </div>
 
           <div className="flex flex-1 flex-col gap-2 p-4">
-            <h3 className="text-sm font-semibold leading-snug text-brand-950 transition-colors group-hover:text-accent-600">
+            <h3 className="text-sm font-semibold leading-snug text-brand-950 transition-colors group-hover:text-accent-700">
               {item.title}
             </h3>
             {item.description ? (

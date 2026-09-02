@@ -155,7 +155,7 @@ export default function LaEmpresaPage() {
               <Magnetic>
                 <Link
                   href="/productos"
-                  className="inline-flex rounded-full bg-accent-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-600"
+                  className="inline-flex rounded-full bg-accent-500 px-6 py-3 text-sm font-semibold text-brand-950 transition-colors hover:bg-accent-400"
                 >
                   Ver Productos
                 </Link>

@@ -106,7 +106,7 @@ function Panel({
         type="button"
         onClick={onClose}
         aria-label="Cerrar"
-        className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-brand-950/70 text-white backdrop-blur transition-colors hover:bg-accent-500"
+        className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-brand-950/70 text-white backdrop-blur transition-colors hover:bg-accent-500 hover:text-brand-950"
       >
         <svg
           className="h-5 w-5"
@@ -187,7 +187,7 @@ function Panel({
         {/* Detail */}
         <div className="flex flex-col gap-5 p-6 sm:p-8">
           {categoryName ? (
-            <span className="eyebrow text-accent-600">{categoryName}</span>
+            <span className="eyebrow text-accent-700">{categoryName}</span>
           ) : null}
           <h2 className="font-display text-2xl font-bold leading-tight text-brand-950">
             {item.title}
@@ -240,7 +240,7 @@ function Panel({
               <button
                 type="button"
                 onClick={() => setShowVideo(true)}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-brand-950 transition-colors hover:border-accent-400 hover:text-accent-600"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-brand-950 transition-colors hover:border-accent-400 hover:text-accent-700"
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -254,7 +254,7 @@ function Panel({
             ) : null}
             <a
               href="/contacto"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-500 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-600"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-500 px-5 py-3 text-sm font-semibold text-brand-950 transition-colors hover:bg-accent-400"
             >
               Consultar por este equipo
             </a>

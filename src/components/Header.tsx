@@ -133,7 +133,7 @@ export default function Header() {
           </a>
           <Link
             href="/contacto"
-            className="rounded-full bg-accent-500 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-600"
+            className="rounded-full bg-accent-500 px-5 py-2 text-sm font-semibold text-brand-950 transition-colors hover:bg-accent-400"
           >
             Contactanos
           </Link>
@@ -235,7 +235,7 @@ export default function Header() {
                 </a>
                 <Link
                   href="/contacto"
-                  className="rounded-xl bg-accent-500 px-4 py-3 text-center text-sm font-semibold text-white"
+                  className="rounded-xl bg-accent-500 px-4 py-3 text-center text-sm font-semibold text-brand-950"
                 >
                   Contactanos
                 </Link>

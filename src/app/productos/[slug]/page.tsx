@@ -67,7 +67,7 @@ export default async function ProductCategoryPage({
                       <svg
                         viewBox="0 0 20 20"
                         fill="currentColor"
-                        className="mt-0.5 h-5 w-5 shrink-0 text-accent-500"
+                        className="mt-0.5 h-5 w-5 shrink-0 text-accent-700"
                       >
                         <path
                           fillRule="evenodd"
@@ -93,7 +93,7 @@ export default async function ProductCategoryPage({
                       "Estabilizadores traseros",
                     ].map((option) => (
                       <li key={option} className="flex items-center gap-2.5">
-                        <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent-500" />
+                        <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent-700" />
                         {option}
                       </li>
                     ))}
@@ -107,7 +107,7 @@ export default async function ProductCategoryPage({
             <StaggerGroup className="flex flex-wrap gap-2.5">
               {category.chips.map((chip) => (
                 <StaggerItem key={chip}>
-                  <span className="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-brand-900 shadow-sm transition-colors hover:border-accent-400 hover:text-accent-600">
+                  <span className="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-brand-900 shadow-sm transition-colors hover:border-accent-400 hover:text-accent-700">
                     {chip}
                   </span>
                 </StaggerItem>
@@ -172,7 +172,7 @@ export default async function ProductCategoryPage({
                 <Magnetic>
                   <Link
                     href="/contacto"
-                    className="inline-flex rounded-full bg-accent-500 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-600"
+                    className="inline-flex rounded-full bg-accent-500 px-5 py-2.5 text-sm font-semibold text-brand-950 transition-colors hover:bg-accent-400"
                   >
                     Contactanos
                   </Link>
@@ -194,10 +194,10 @@ export default async function ProductCategoryPage({
               <StaggerItem key={other.slug}>
                 <Link
                   href={`/productos/${other.slug}`}
-                  className="group flex h-full items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-brand-900 transition-all hover:-translate-y-1 hover:border-accent-400 hover:text-accent-600 hover:shadow-lg"
+                  className="group flex h-full items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-brand-900 transition-all hover:-translate-y-1 hover:border-accent-400 hover:text-accent-700 hover:shadow-lg"
                 >
                   {other.name}
-                  <span className="text-accent-500 transition-transform duration-300 group-hover:translate-x-1">
+                  <span className="text-accent-700 transition-transform duration-300 group-hover:translate-x-1">
                     →
                   </span>
                 </Link>

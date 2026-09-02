@@ -122,7 +122,7 @@ export default function HomeHero({ totalProducts }: { totalProducts: number }) {
               <Magnetic>
                 <Link
                   href="/productos"
-                  className="group inline-flex items-center gap-2 rounded-full bg-accent-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent-500/25 transition-colors hover:bg-accent-600"
+                  className="group inline-flex items-center gap-2 rounded-full bg-accent-500 px-7 py-3.5 text-sm font-semibold text-brand-950 shadow-lg shadow-accent-500/25 transition-colors hover:bg-accent-400"
                 >
                   Ver productos
                   <svg

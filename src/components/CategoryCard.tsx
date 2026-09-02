@@ -54,7 +54,7 @@ export default function CategoryCard({ category }: { category: ProductCategory }
           <motion.span
             variants={{ rest: { opacity: 0, x: -8 }, hover: { opacity: 1, x: 0 } }}
             transition={{ duration: 0.35, ease: easeOutExpo }}
-            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-accent-500 text-white shadow-lg"
+            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-accent-500 text-brand-950 shadow-lg"
           >
             <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
               <path
@@ -74,7 +74,7 @@ export default function CategoryCard({ category }: { category: ProductCategory }
 
         <div className="flex flex-1 flex-col gap-3 p-5">
           <p className="text-sm leading-relaxed text-slate-600">{category.shortDescription}</p>
-          <span className="mt-auto inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-accent-600">
+          <span className="mt-auto inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-accent-700">
             Ver productos
             <motion.svg
               variants={{ rest: { x: 0 }, hover: { x: 5 } }}

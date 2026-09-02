@@ -160,7 +160,7 @@ export default function Home() {
             <Reveal direction="left">
               <Link
                 href="/productos"
-                className="group inline-flex w-fit items-center gap-2 rounded-full border border-brand-200 bg-white px-5 py-2.5 text-sm font-semibold text-brand-800 transition-colors hover:border-accent-400 hover:text-accent-600"
+                className="group inline-flex w-fit items-center gap-2 rounded-full border border-brand-200 bg-white px-5 py-2.5 text-sm font-semibold text-brand-800 transition-colors hover:border-accent-400 hover:text-accent-700"
               >
                 Ver todas las líneas
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -300,7 +300,7 @@ export default function Home() {
               <Magnetic>
                 <Link
                   href="/contacto"
-                  className="group inline-flex items-center gap-2 rounded-full bg-accent-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent-500/25 transition-colors hover:bg-accent-600"
+                  className="group inline-flex items-center gap-2 rounded-full bg-accent-500 px-7 py-3.5 text-sm font-semibold text-brand-950 shadow-lg shadow-accent-500/25 transition-colors hover:bg-accent-400"
                 >
                   Ir a Contacto
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
