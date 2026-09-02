@@ -330,3 +330,29 @@ export const totalProducts = productCategories.reduce(
 
 export const totalCategories = productCategories.length;
 
+
+export type FeaturedItem = ProductItem & {
+  categoryName: string;
+  categorySlug: string;
+};
+
+/**
+ * Equipment with a video of the machine actually running — the strongest
+ * evidence the catalogue holds, and the reason the home page leads with real
+ * machines instead of category tiles.
+ *
+ * Items carrying their own photograph come first: the rest fall back to the
+ * YouTube still, which is sharp but framed by whoever shot the video.
+ */
+export const featuredEquipment: FeaturedItem[] = productCategories
+  .flatMap((category) =>
+    category.items
+      .filter((item) => item.youtubeId)
+      .map((item) => ({
+        ...item,
+        categoryName: category.name,
+        categorySlug: category.slug,
+      }))
+  )
+  .sort((a, b) => Number(Boolean(b.image)) - Number(Boolean(a.image)))
+  .slice(0, 6);

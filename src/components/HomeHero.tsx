@@ -7,8 +7,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Container from "./Container";
 import Ticker from "./Ticker";
 import Magnetic from "./motion/Magnetic";
-import TiltCard from "./motion/TiltCard";
-import RotatingWord from "./motion/RotatingWord";
 import WordReveal from "./motion/WordReveal";
 import Counter from "./motion/Counter";
 import AuroraBackground from "./motion/AuroraBackground";
@@ -78,10 +76,7 @@ export default function HomeHero({ totalProducts }: { totalProducts: number }) {
               transition={{ duration: 0.6, ease: easeOutExpo }}
               className="eyebrow inline-flex w-fit items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-slate-300 backdrop-blur"
             >
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-500" />
-              </span>
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent-400" />
               Rosario, Santa Fe — Argentina
             </motion.span>
 
@@ -97,8 +92,7 @@ export default function HomeHero({ totalProducts }: { totalProducts: number }) {
                 transition={{ duration: 0.7, ease: easeOutExpo, delay: 0.5 }}
                 className="font-display text-2xl font-semibold tracking-tight text-slate-400 sm:text-3xl"
               >
-                para tu{" "}
-                <RotatingWord words={["producción", "planta", "línea", "industria"]} />
+                para tu línea de producción
               </motion.p>
             </div>
 
@@ -119,12 +113,16 @@ export default function HomeHero({ totalProducts }: { totalProducts: number }) {
               transition={{ duration: 0.7, ease: easeOutExpo, delay: 0.72 }}
               className="flex flex-wrap items-center gap-4"
             >
+              {/*
+                The solid accent goes to the conversion, not to the catalogue:
+                the form is what this site is trying to earn.
+              */}
               <Magnetic>
                 <Link
-                  href="/productos"
-                  className="group inline-flex items-center gap-2 rounded-full bg-accent-500 px-7 py-3.5 text-sm font-semibold text-brand-950 shadow-lg shadow-accent-500/25 transition-colors hover:bg-accent-400"
+                  href="/contacto"
+                  className="group inline-flex items-center gap-2 rounded-full bg-accent-500 px-7 py-3.5 text-sm font-semibold text-brand-950 transition-colors hover:bg-accent-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-400"
                 >
-                  Ver productos
+                  Hablar con un ingeniero
                   <svg
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -140,10 +138,10 @@ export default function HomeHero({ totalProducts }: { totalProducts: number }) {
               </Magnetic>
               <Magnetic>
                 <Link
-                  href="/contacto"
-                  className="inline-flex rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition-colors hover:border-white/40 hover:bg-white/10"
+                  href="/productos"
+                  className="inline-flex rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition-colors hover:border-white/40 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-400"
                 >
-                  Hablar con un ingeniero
+                  Ver productos
                 </Link>
               </Magnetic>
             </motion.div>
@@ -159,41 +157,39 @@ export default function HomeHero({ totalProducts }: { totalProducts: number }) {
             transition={{ duration: 0.9, ease: easeOutExpo, delay: 0.25 }}
             className="mx-auto w-full max-w-[26rem] lg:mx-0 lg:ml-auto"
           >
-            <TiltCard maxTilt={7}>
-              <div className="relative">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/15 shadow-2xl shadow-black/50">
-                  <Image
-                    src="/images/gallery/2.jpg"
-                    alt="Prensa hidráulica fabricada por DINFES"
-                    fill
-                    priority
-                    sizes="(min-width: 1024px) 26rem, 90vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-950/85 via-brand-950/10 to-transparent" />
+            <div className="relative">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/15 shadow-2xl shadow-black/50">
+                <Image
+                  src="/images/gallery/2.jpg"
+                  alt="Prensa hidráulica fabricada por DINFES"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 26rem, 90vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-950/85 via-brand-950/10 to-transparent" />
 
-                  <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-brand-950/70 px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-accent-400 backdrop-blur">
-                    Norma ASME VIII
-                  </span>
+                <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-brand-950/70 px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-accent-400 backdrop-blur">
+                  Norma ASME VIII
+                </span>
 
-                  <div className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3">
-                    <div className="flex flex-col">
-                      <Counter
-                        value={totalProducts}
-                        suffix="+"
-                        className="font-display text-4xl font-bold leading-none text-white"
-                      />
-                      <span className="mt-1 text-[0.6875rem] font-medium uppercase tracking-wider text-slate-300">
-                        equipos fabricados
-                      </span>
-                    </div>
-                    <span className="rounded-full bg-white/10 px-3 py-1.5 text-[0.6875rem] font-semibold text-white backdrop-blur">
-                      Fabricación propia
+                <div className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3">
+                  <div className="flex flex-col">
+                    <Counter
+                      value={totalProducts}
+                      suffix="+"
+                      className="font-display text-4xl font-bold leading-none text-white"
+                    />
+                    <span className="mt-1 text-[0.6875rem] font-medium uppercase tracking-wider text-slate-300">
+                      equipos fabricados
                     </span>
                   </div>
+                  <span className="rounded-full bg-white/10 px-3 py-1.5 text-[0.6875rem] font-semibold text-white backdrop-blur">
+                    Fabricación propia
+                  </span>
                 </div>
               </div>
-            </TiltCard>
+            </div>
           </motion.div>
         </Container>
       </motion.div>

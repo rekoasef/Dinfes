@@ -131,9 +131,13 @@ export default function Header() {
           >
             {site.phone}
           </a>
+          {/*
+            Outlined, not solid: the chrome shares the first viewport with the
+            hero, and only one element per screen gets to be the accent signal.
+          */}
           <Link
             href="/contacto"
-            className="rounded-full bg-accent-500 px-5 py-2 text-sm font-semibold text-brand-950 transition-colors hover:bg-accent-400"
+            className="rounded-full border border-accent-500 px-5 py-2 text-sm font-semibold text-accent-400 transition-colors hover:bg-accent-500 hover:text-brand-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-400"
           >
             Contactanos
           </Link>

@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
 import SectionDivider from "@/components/SectionDivider";
 import CategoryCard from "@/components/CategoryCard";
+import FeaturedEquipment from "@/components/FeaturedEquipment";
 import HomeHero from "@/components/HomeHero";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import Reveal from "@/components/motion/Reveal";
@@ -11,7 +12,12 @@ import Counter from "@/components/motion/Counter";
 import Magnetic from "@/components/motion/Magnetic";
 import ScrollMarquee from "@/components/motion/ScrollMarquee";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
-import { productCategories, totalCategories, totalProducts } from "@/lib/data/categories";
+import {
+  featuredEquipment,
+  productCategories,
+  totalCategories,
+  totalProducts,
+} from "@/lib/data/categories";
 import { site } from "@/lib/data/site";
 
 const values = [
@@ -145,6 +151,20 @@ export default function Home() {
               </StaggerItem>
             ))}
           </StaggerGroup>
+        </Container>
+      </section>
+
+      {/* FEATURED EQUIPMENT — real machines before the taxonomy */}
+      <section className="relative overflow-hidden bg-brand-950 py-20 sm:py-28">
+        <div aria-hidden="true" className="bg-blueprint absolute inset-0 opacity-40" />
+        <Container className="relative flex flex-col gap-14">
+          <SectionHeading
+            eyebrow="Equipos entregados"
+            title="Máquinas que ya están produciendo"
+            description="Cada una fue diseñada y fabricada en el taller de Rosario para el proceso de un cliente. Abrí cualquiera para ver el video del equipo funcionando y descargar su ficha técnica."
+            tone="light"
+          />
+          <FeaturedEquipment items={featuredEquipment} />
         </Container>
       </section>
 
