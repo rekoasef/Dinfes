@@ -50,7 +50,7 @@ export default function ContactoPage() {
                   rel={channel.label === "Dirección" ? "noreferrer" : undefined}
                   className="flex flex-col gap-1.5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-1.5 hover:border-accent-400 hover:shadow-xl"
                 >
-                  <span className="eyebrow text-accent-600">
+                  <span className="eyebrow text-accent-700">
                     {channel.label}
                   </span>
                   <span className="text-base font-medium text-brand-950">{channel.value}</span>
@@ -63,7 +63,7 @@ export default function ContactoPage() {
             <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
               <h2 className="font-display text-xl font-bold text-brand-950">Envianos tu consulta</h2>
               <p className="mt-1 text-sm text-slate-600">
-                Completá el formulario y se abrirá tu cliente de email con los datos cargados.
+                Contanos qué equipo o proceso necesitás y te respondemos a la brevedad.
               </p>
               <div className="mt-6">
                 <ContactForm />
