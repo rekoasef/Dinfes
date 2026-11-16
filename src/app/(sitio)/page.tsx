@@ -12,12 +12,7 @@ import Counter from "@/components/motion/Counter";
 import Magnetic from "@/components/motion/Magnetic";
 import ScrollMarquee from "@/components/motion/ScrollMarquee";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
-import {
-  featuredEquipment,
-  productCategories,
-  totalCategories,
-  totalProducts,
-} from "@/lib/data/categories";
+import { countProducts, getCatalog, pickFeatured } from "@/lib/data/catalog";
 import { site } from "@/lib/data/site";
 
 const values = [
@@ -76,14 +71,18 @@ const galleryStrip = [
   { src: "/images/gallery/5.jpg", alt: "Detalle de fabricación" },
 ];
 
-const stats = [
-  { value: totalProducts, suffix: "+", label: "Equipos y modelos fabricados" },
-  { value: totalCategories, suffix: "", label: "Líneas de producto" },
-  { value: 35, suffix: "+", label: "Fichas técnicas disponibles" },
-  { raw: "ASME VIII", label: "Recipientes certificados" },
-];
+export default async function Home() {
+  const catalog = await getCatalog();
+  const totalProducts = countProducts(catalog);
+  const datasheets = catalog.flatMap((c) => c.items).filter((item) => item.pdf).length;
 
-export default function Home() {
+  const stats = [
+    { value: totalProducts, suffix: "+", label: "Equipos y modelos fabricados" },
+    { value: catalog.length, suffix: "", label: "Líneas de producto" },
+    { value: datasheets, suffix: "", label: "Fichas técnicas disponibles" },
+    { raw: "ASME VIII", label: "Recipientes certificados" },
+  ];
+
   return (
     <>
       <HomeHero totalProducts={totalProducts} />
@@ -164,7 +163,7 @@ export default function Home() {
             description="Cada una fue diseñada y fabricada en el taller de Rosario para el proceso de un cliente. Abrí cualquiera para ver el video del equipo funcionando y descargar su ficha técnica."
             tone="light"
           />
-          <FeaturedEquipment items={featuredEquipment} />
+          <FeaturedEquipment items={pickFeatured(catalog)} />
         </Container>
       </section>
 
@@ -190,7 +189,7 @@ export default function Home() {
             </Reveal>
           </div>
           <StaggerGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" amount={0.05}>
-            {productCategories.map((category) => (
+            {catalog.map((category) => (
               <StaggerItem key={category.slug} className="h-full">
                 <CategoryCard category={category} />
               </StaggerItem>

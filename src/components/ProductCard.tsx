@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import type { ProductItem } from "@/lib/data/categories";
-import { youtubeThumbnail } from "@/lib/youtube";
+import type { ProductItem } from "@/lib/data/catalog";
+import { isYoutubeImage, youtubeThumbnail } from "@/lib/youtube";
 import ProductDialog from "./ProductDialog";
 import { easeOutExpo } from "@/lib/motion";
 import { useReducedMotion } from "@/lib/useReducedMotion";
@@ -31,7 +31,7 @@ export default function ProductCard({
   const [open, setOpen] = useState(false);
   const reduced = useReducedMotion();
   const thumb = item.image ?? (item.youtubeId ? youtubeThumbnail(item.youtubeId) : null);
-  const isRemote = !!thumb?.startsWith("http");
+  const isRemote = !!thumb && isYoutubeImage(thumb);
 
   return (
     <>

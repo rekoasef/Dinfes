@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import SmoothScroll from "@/components/SmoothScroll";
-import ScrollProgressBar from "@/components/ScrollProgressBar";
-import BackToTop from "@/components/BackToTop";
 import { site } from "@/lib/data/site";
 
 const inter = Inter({
@@ -49,15 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="es"
       className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-white font-sans">
-        <SmoothScroll>
-          <ScrollProgressBar />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <BackToTop />
-        </SmoothScroll>
-      </body>
+      <body className="flex min-h-full flex-col bg-white font-sans">{children}</body>
     </html>
   );
 }

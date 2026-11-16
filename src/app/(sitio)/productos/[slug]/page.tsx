@@ -7,11 +7,12 @@ import ProductCard from "@/components/ProductCard";
 import Reveal from "@/components/motion/Reveal";
 import Magnetic from "@/components/motion/Magnetic";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
-import { getCategory, productCategories } from "@/lib/data/categories";
+import { getCatalog } from "@/lib/data/catalog";
 import { site } from "@/lib/data/site";
 
-export function generateStaticParams() {
-  return productCategories.map((category) => ({ slug: category.slug }));
+export async function generateStaticParams() {
+  const catalog = await getCatalog();
+  return catalog.map((category) => ({ slug: category.slug }));
 }
 
 export async function generateMetadata({
@@ -20,7 +21,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const category = getCategory(slug);
+  const category = (await getCatalog()).find((c) => c.slug === slug);
   if (!category) return {};
   return {
     title: category.name,
@@ -34,10 +35,11 @@ export default async function ProductCategoryPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const category = getCategory(slug);
+  const catalog = await getCatalog();
+  const category = catalog.find((c) => c.slug === slug);
   if (!category) notFound();
 
-  const others = productCategories.filter((c) => c.slug !== category.slug).slice(0, 4);
+  const others = catalog.filter((c) => c.slug !== category.slug).slice(0, 4);
 
   return (
     <>
@@ -131,7 +133,7 @@ export default async function ProductCategoryPage({
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {category.items.map((item, i) => (
                   <ProductCard
-                    key={item.title}
+                    key={item.id}
                     item={item}
                     categoryName={category.name}
                     index={i}

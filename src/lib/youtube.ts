@@ -13,3 +13,11 @@ export function youtubeEmbedUrl(id: string) {
 export function youtubeWatchUrl(id: string) {
   return `https://www.youtube.com/watch?v=${id}`;
 }
+
+/**
+ * YouTube stills are already sized for the web, so they skip Next's image
+ * optimizer; photos the admin uploads to Storage go through it like local ones.
+ */
+export function isYoutubeImage(src: string) {
+  return src.includes("img.youtube.com/") || src.includes("i.ytimg.com/");
+}

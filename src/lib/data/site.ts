@@ -27,37 +27,17 @@ export type NavItem = {
   children?: { label: string; href: string }[];
 };
 
-export const nav: NavItem[] = [
-  { label: "Inicio", href: "/" },
-  { label: "La Empresa", href: "/la-empresa" },
-  {
-    label: "Productos",
-    href: "/productos",
-    children: [
-      { label: "Prensas Hidráulicas", href: "/productos/prensas-hidraulicas" },
-      { label: "Máquinas Especiales", href: "/productos/maquinas-especiales" },
-      {
-        label: "Recipientes ASME VIII",
-        href: "/productos/recipientes-sometidos-a-presion-asme-viii",
-      },
-      { label: "Productos Seriados", href: "/productos/productos-seriados" },
-      {
-        label: "Grúa Articulada Electrohidráulica",
-        href: "/productos/grua-articulada-electrohidraulica",
-      },
-      {
-        label: "Equipos Entregados Recientemente",
-        href: "/productos/equipos-entregados-reciente",
-      },
-      {
-        label: "Retrofitting de Máquinas Industriales",
-        href: "/productos/retrofitting-de-maquinas-industriales",
-      },
-      { label: "Centrales Hidráulicas", href: "/productos/centrales-hidraulicas" },
-      { label: "Accesorios Comerciales", href: "/productos/accesorios-comerciales" },
-    ],
-  },
-  { label: "Ingeniería", href: "/ingenieria" },
-  { label: "Ubicación", href: "/ubicacion" },
-  { label: "Contacto", href: "/contacto" },
-];
+/**
+ * Main navigation. Product lines come from the catalogue, so a category the
+ * admin adds shows up in the header and footer without touching code.
+ */
+export function buildNav(productLinks: { label: string; href: string }[]): NavItem[] {
+  return [
+    { label: "Inicio", href: "/" },
+    { label: "La Empresa", href: "/la-empresa" },
+    { label: "Productos", href: "/productos", children: productLinks },
+    { label: "Ingeniería", href: "/ingenieria" },
+    { label: "Ubicación", href: "/ubicacion" },
+    { label: "Contacto", href: "/contacto" },
+  ];
+}

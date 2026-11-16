@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import type { ProductItem } from "@/lib/data/categories";
-import { youtubeEmbedUrl, youtubeThumbnail } from "@/lib/youtube";
+import type { ProductItem } from "@/lib/data/catalog";
+import { isYoutubeImage, youtubeEmbedUrl, youtubeThumbnail } from "@/lib/youtube";
 import { lockScroll, unlockScroll } from "./SmoothScroll";
 import { easeOutExpo } from "@/lib/motion";
 
@@ -146,7 +146,7 @@ function Panel({
                 aria-hidden="true"
                 sizes="(min-width: 640px) 50vw, 100vw"
                 className="scale-125 object-cover opacity-40 blur-2xl"
-                unoptimized={poster.startsWith("http")}
+                unoptimized={isYoutubeImage(poster)}
               />
               <Image
                 src={poster}
@@ -154,7 +154,7 @@ function Panel({
                 fill
                 sizes="(min-width: 640px) 50vw, 100vw"
                 className="relative object-contain p-4"
-                unoptimized={poster.startsWith("http")}
+                unoptimized={isYoutubeImage(poster)}
               />
               {item.youtubeId ? (
                 <button
@@ -193,7 +193,7 @@ function Panel({
             {item.title}
           </h2>
 
-          <p className="text-sm leading-relaxed text-slate-600">
+          <p className="whitespace-pre-line text-sm leading-relaxed text-slate-600">
             {item.description ??
               "Equipo diseñado y fabricado por DINFES a medida del proceso productivo de cada cliente. Escribinos para recibir la ficha técnica completa, dimensiones y condiciones de entrega."}
           </p>

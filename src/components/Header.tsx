@@ -9,11 +9,11 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "framer-motion";
-import { nav, site } from "@/lib/data/site";
+import { site, type NavItem } from "@/lib/data/site";
 import { easeOutExpo } from "@/lib/motion";
 import Logo from "./Logo";
 
-export default function Header() {
+export default function Header({ nav }: { nav: NavItem[] }) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);

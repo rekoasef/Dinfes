@@ -2,7 +2,7 @@ import Link from "next/link";
 import Container from "./Container";
 import Logo from "./Logo";
 import Reveal from "./motion/Reveal";
-import { nav, site } from "@/lib/data/site";
+import { site } from "@/lib/data/site";
 
 const mainLinks = [
   { label: "Inicio", href: "/" },
@@ -13,9 +13,11 @@ const mainLinks = [
   { label: "Contacto", href: "/contacto" },
 ];
 
-export default function Footer() {
-  const productLinks = nav.find((item) => item.href === "/productos")?.children ?? [];
-
+export default function Footer({
+  productLinks,
+}: {
+  productLinks: { label: string; href: string }[];
+}) {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-brand-950 text-slate-300">
       <div aria-hidden="true" className="bg-blueprint absolute inset-0 opacity-30" />

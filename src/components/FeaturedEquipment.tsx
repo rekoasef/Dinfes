@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import type { FeaturedItem } from "@/lib/data/categories";
-import { youtubeThumbnail } from "@/lib/youtube";
+import type { FeaturedItem } from "@/lib/data/catalog";
+import { isYoutubeImage, youtubeThumbnail } from "@/lib/youtube";
 import ProductDialog from "./ProductDialog";
 import { easeOutExpo } from "@/lib/motion";
 import { useReducedMotion } from "@/lib/useReducedMotion";
@@ -28,11 +28,11 @@ export default function FeaturedEquipment({ items }: { items: FeaturedItem[] }) 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item, index) => {
           const poster = item.image ?? youtubeThumbnail(item.youtubeId!);
-          const isRemote = poster.startsWith("http");
+          const isRemote = isYoutubeImage(poster);
 
           return (
             <motion.div
-              key={`${item.categorySlug}-${item.title}`}
+              key={item.id}
               initial={reduced ? { opacity: 0 } : { opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
